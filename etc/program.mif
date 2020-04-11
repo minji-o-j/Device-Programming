@@ -1,0 +1,27 @@
+-- Content of the ROM memory in the file PROGRAM.MIF
+
+DEPTH = 16;		-- Number of memory locations: 4-bit address
+WIDTH = 8;		-- Data Width of memory: 8-bit data
+
+ADDRESS_RADIX = BIN;		-- Specifies the address values are in binary
+							-- Other valid radixes are HEX, DEC, OCT, BIN
+DATA_RADIX = BIN;			-- Specifies the data values are in binary
+
+-- Specify memory content.
+-- Format of each memory location is
+--     address : data
+
+CONTENT
+	BEGIN
+
+	[0000..1111]	:	00000000;	-- Initialize locations range 00-FF to 0
+
+-- Program to countdown from an input to 0
+
+	0000	:	01100000;	-- input A
+	0001	:	10000000;	-- output A
+	0010	:	10100000;	-- decrement A
+	0011	:	11000001;	-- jnz 0001
+	0100	:	11111111;	-- halt
+
+END;
