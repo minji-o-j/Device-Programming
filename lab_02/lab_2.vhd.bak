@@ -1,0 +1,44 @@
+TYPE state IS (S0, S1, S2);
+SIGNAL Moore_State: state;
+
+U_Moore: PROCESS(clock, reset)
+
+BEGIN
+	IF(reset='1') THEN
+		Moore_State <=S0;
+		
+	ELSIF(clock='1' AND clock'event) THEN
+		CASE Moore_State IS
+			WHEN S0 =>
+				IF input ='1' THEN
+					Moore_State <=S1;
+				ELSE
+					Moore_State <=S0;
+				END IF;
+			-----------------------
+			WHEN S1 =>
+				IF input ='0' THEN
+					Moore_State <=S2;
+				ELSE
+					Moore_State <=S1;
+				END IF;
+			-----------------------	
+			WHEN S2 =>
+				IF input ='1' THEN
+					Moore_State <=S3;
+				ELSE
+					Moore_State <=S0;
+				END IF;
+			-----------------------	
+			WHEN S3 =>
+				IF input ='0' THEN
+					Moore_State <=S2;
+				ELSE
+					Moore_State <=S1;
+				END IF;
+		END CASE;
+	END IF;
+END PROCESS;
+
+Output <='1' WHEN Moore_State=S3 ELSE '0';
+			
