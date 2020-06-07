@@ -1,8 +1,0 @@
-set_global_assignment -name IP_TOOL_NAME "ROM: 1-PORT"
-set_global_assignment -name IP_TOOL_VERSION "13.1"
-set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "rom_example2.vhd"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "rom_example2.bsf"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "rom_example2_inst.vhd"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "rom_example2.inc"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "rom_example2.cmp"]
-set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "rom_example2_syn.v"]
