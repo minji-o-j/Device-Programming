@@ -14,16 +14,16 @@
 ---
 ## lab 04(mini) - ROM을 이용한 Combinational Logic 구현
 ---
-## lab 05 - Microprogramming Logic DesignAssignment
+## lab 05 - Microprogramming Logic Design
 ---
 ## lab 06(mini) - RAM 분석
 ---
 ## lab 07 - RAM 기반 Data Processor
 ---
-## lab 08 - CU & DP DesignAssignment
+## lab 08 - CU & DP Design
 ---
 ## lab 09 - General CPU design 1
 ---
 ## lab 10 - General CPU design 2
 ---
-## lab 11 - Simple CPU designAssignment 
+## lab 11 - Simple CPU design
