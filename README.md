@@ -18,7 +18,7 @@
 ---
 ## lab 06(mini) - RAM 분석
 ---
-## lab 07 - RAM 기반 Data Processor
+## lab 07 - RAM 기반 Data Processor (ALU 설계(
 ---
 ## lab 08 - CU & DP Design
 ---
