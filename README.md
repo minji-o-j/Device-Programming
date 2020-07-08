@@ -9,20 +9,21 @@
 ## lab 02 - Simple Sequence Detector
 
 ---
-## lab 03
+## lab 03 - One-counter Design
+
 ---
-## lab 04
+## lab 04(mini) - ROM을 이용한 Combinational Logic 구현
 ---
-## lab 05
+## lab 05 - Microprogramming Logic DesignAssignment
 ---
-## lab 06
+## lab 06(mini) - RAM 분석
 ---
-## lab 07
+## lab 07 - RAM 기반 Data Processor
 ---
-## lab 08
+## lab 08 - CU & DP DesignAssignment
 ---
-## lab 09
+## lab 09 - General CPU design 1
 ---
-## lab 10
+## lab 10 - General CPU design 2
 ---
-## lab 11
+## lab 11 - Simple CPU designAssignment 
