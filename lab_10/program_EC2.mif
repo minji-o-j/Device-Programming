@@ -1,0 +1,109 @@
+-- Content of the RAM memory in the file PROGRAM.MIF
+
+DEPTH = 32;		-- Depth of memory: 5-bit address
+WIDTH = 8;		-- Width of memory: 8-bit data
+
+ADDRESS_RADIX = BIN;	-- All values in binary (HEX, DEC, OCT, BIN)
+DATA_RADIX = BIN;
+
+-- Opcodes for the EC-2
+--		000 = load A,aaaaa
+--		001 = store A,aaaaa
+--		010 = add A,aaaaa
+--		011 = sub A,aaaaa
+--		100 = in A
+--		101 = jz aaaaa
+--		110 = jpos aaaaa
+--		111 = halt
+
+-- Specify the memory content.
+-- Format of each memory location is
+--     address : data
+
+CONTENT
+	BEGIN
+	[00000..11111]	:	00000000;	-- Initialize locations range 00-FF to 0000
+
+--------------------------------------------------------
+-- There are three programs listed below: GCD, Sum, and Count
+-- Only the progam listed last is ran.
+-- To try out a different program, move the code for the program you
+-- want to the end of the list, re-compile, and download to the FPGA
+
+--------------------------------------------------------
+-- GCD
+-- Program to calculate the GCD of two numbers
+	--00000	:	10000000;	-- input A
+	--00001	:	00111110;	-- store A,x
+	--00010	:	10000000;	-- input A
+	--00011	:	00111111;	-- store A,y
+
+	--00100	:	00011110;	-- loop: load A,x	-- x = y?
+	--00101	:	01111111;	-- sub A,y
+	--00110	:	10110000;	-- jz out		-- x=y
+	--00111	:	11001100;	-- jp xgty		-- x>y
+
+	--01000	:	00011111;	-- load A,y		-- y>x
+	--01001	:	01111110;	-- sub A,x		-- y-x
+	--01010	:	00111111;	-- store A,y
+	--01011	:	11000100;	-- jp loop
+
+	--01100	:	00011110;	-- xgty: load A,x	-- x>y
+	--01101	:	01111111;	-- sub A,y			-- x-y
+	--01110	:	00111110;	-- store A,x
+	--01111	:	11000100;	-- jp loop
+
+	--10000	:	00011110;	-- load A,x
+	--10001	:	11111111;	-- halt
+
+	--11110	:	00000000;	-- x
+	--11111	:	00000000;	-- y
+
+--------------------------------------------------------
+-- Sum
+-- Program to sum N downto 1
+	--00000	:	00011101;	-- load A,one	-- zero sum by doing 1-1
+	--00001	:	01111101;	-- sub A,one
+	--00010	:	00111110;	-- store A,sum
+
+	--00011	:	10000000;	-- input A
+	--00100	:	00111111;	-- store A,n
+
+	--00101	:	00011111;	-- loop: load A,n	-- n + sum
+	--00110	:	01011110;	-- add A,sum
+	--00111	:	00111110;	-- store A,sum
+
+	--01000	:	00011111;	-- load A,n			-- decrement A
+	--01001	:	01111101;	-- sub A,one
+	--01010	:	00111111;	-- store A,n
+
+	--01011	:	10101101;	-- jz out
+	--01100	:	11000101;	-- jp loop
+	--01101	:	00011110;	-- out: load A,sum
+	--01110	:	11111111;	-- halt
+
+	--11101	:	00000001;	-- one
+	--11110	:	00000000;	-- sum
+	--11111	:	00000000;	-- n
+
+--------------------------------------------------------
+-- Countdown
+-- Program to countdown N downto 1
+	00000	:	00011110;	-- load A,one
+ 	00001	:	10000000;	--input A
+	00010	:	00111111;	--store A->N
+	00011	:	00011111;	--loop:load A, N
+	00100	:	01111110;	--sub A,one
+	00101	:	00111111;	--store A->N
+
+	00110	:	10101000;	--jz_out
+	00111	:	11000011;	--jp loop
+	01000	:	11111111;	--halt
+
+	11110	:	00000001;	--one
+	11111	:	00000000;	--N
+
+--------------------------------------------------------
+
+
+END;
