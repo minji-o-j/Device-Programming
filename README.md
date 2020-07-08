@@ -3,9 +3,11 @@
 # 디바이스 프로그래밍
 
 ---
-## lab 01
+## lab 01 - 실습 환경 구축
+
 ---
-## lab 02
+## lab 02 - Simple Sequence Detector
+
 ---
 ## lab 03
 ---
