@@ -1,0 +1,33 @@
+-- Content of the RAM memory in the file PROGRAM.MIF
+
+DEPTH = 32;		-- Depth of memory: 5-bit address
+WIDTH = 8;		-- Width of memory: 8-bit data
+
+ADDRESS_RADIX = BIN;	-- All values in binary (HEX, DEC, OCT, BIN)
+DATA_RADIX = BIN;
+
+CONTENT
+	BEGIN
+	[00000..11111]	:	00000000;	-- Initialize locations range 00-FF to 0000
+
+--------------------------------------------------------
+--Sum and countdown program
+	00000	:	10000000;	-- input A, x	x에 넣을 값을 A에 받는다.
+	00001	:	00111110;	-- store x		A의 값을 x를 저장할 위치에 저장한다.
+	00010	:	10000000;	-- input A, y	y에 넣을 값을 A에 받는다.
+	00011	:	00111111;	-- store y		A의 값을 y를 저장할 위치에 저장한다.
+	00100	:	00011111;	-- load A=y	y를 A에 load한다.
+	00101	:	01011110;	-- add A+x	A(y값)와 x를 더한다.
+	00110	:	00111110;	-- store A->n	A를 n에 저장한다. (n은 초기에 x를 저장해 두었던 곳인 11110)
+	00111	:	10100000;	--out A		A의 값을 출력한다.
+	01000	:	00011110;	--load A,n--loop	loop시작지점, n을 A에 load한다.
+	01001	:	01111110;	--dec A		A를 1 감소시킨다.
+	01010	:	00111110;	--store A->n	(감소시킨)A의 값을 n에 저장한다.	
+	01011	:	10100000;	--out A		A의 값을 출력한다.
+	01100	:	11001000;	--jump to loop	loop 끝, loop 시작지점으로 돌아간다.
+
+	11110	:	00000000;	-- x, x+y, n
+	11111	:	00000000;	-- y
+---------------------------------------------------------
+
+END;
