@@ -1,0 +1,26 @@
+vsim +altera -do key1_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/altera/13.1/quartus/bin64/work/simulation/modelsim/key1_6_1200mv_85c_vhd_slow.sdo gate_work.key1
+
+wave create -pattern none -portmode in -language vhdl /key1/clk
+wave create -pattern none -portmode in -language vhdl /key1/reset
+wave create -pattern none -portmode in -language vhdl -range 7 0 /key1/key
+
+add wave -position end  sim:/key1/ld_inc_out
+add wave -position end  sim:/key1/condition_sel_out
+add wave -position end  sim:/key1/next_address_out
+add wave -position end  sim:/key1/q_out
+add wave -position end  sim:/key1/beep
+add wave -position end  sim:/key1/door
+add wave -position end  sim:/key1/address
+add wave -position end  sim:/key1/key_sw
+
+wave modify -driver freeze -pattern clock -initialvalue 0 -period 100ns -dutycycle 50 -starttime 0ns -endtime 10000ns Edit:/key1/clk
+wave modify -driver freeze -pattern constant -value 0 -starttime 0ns -endtime 10000ns Edit:/key1/reset
+wave modify -driver freeze -pattern constant -value 00000000 -range 7 0 -starttime 0ns -endtime 10000ns Edit:/key1/key
+
+wave edit invert -start 0ps -end 132653ps Edit:/key1/reset
+wave edit change_value -start 928570ps -end 1571427ps -value 00001000 Edit:/key1/key
+wave edit change_value -start 2867344ps -end 3571425ps -value 10000000 Edit:/key1/key
+wave edit change_value -start 4744893ps -end 5438769ps -value 00000100 Edit:/key1/key
+wave edit change_value -start 6752925ps -end 7354965ps -value 00100000 Edit:/key1/key
+
+run -all

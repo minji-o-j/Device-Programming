@@ -1,0 +1,120 @@
+# Reading C:/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do test_w5_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {test_w5_6_1200mv_85c_slow.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneiv_atom_pack
+# -- Loading package cycloneiv_components
+# -- Compiling entity test_w5
+# -- Compiling architecture structure of test_w5
+# 
+vsim +altera -do test_w5_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/altera/13.1/simulation/modelsim/test_w5_6_1200mv_85c_vhd_slow.sdo gate_work.test_w5
+# vsim +altera -do test_w5_run_msim_gate_vhdl.do -l msim_transcript -gui -sdftyp /=C:/altera/13.1/simulation/modelsim/test_w5_6_1200mv_85c_vhd_slow.sdo gate_work.test_w5 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading cycloneiv.cycloneiv_atom_pack(body)
+# Loading cycloneiv.cycloneiv_components
+# Loading gate_work.test_w5(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneiv.cycloneiv_io_obuf(arch)
+# Loading cycloneiv.cycloneiv_io_ibuf(arch)
+# Loading cycloneiv.cycloneiv_clkctrl(vital_clkctrl)
+# Loading cycloneiv.cycloneiv_ena_reg(behave)
+# Loading cycloneiv.cycloneiv_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
+# Loading instances from C:/altera/13.1/simulation/modelsim/test_w5_6_1200mv_85c_vhd_slow.sdo
+# Loading timing data from C:/altera/13.1/simulation/modelsim/test_w5_6_1200mv_85c_vhd_slow.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /test_w5 File: test_w5_6_1200mv_85c_slow.vho
+# do test_w5_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {test_w5_6_1200mv_85c_slow.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneiv_atom_pack
+# -- Loading package cycloneiv_components
+# -- Compiling entity test_w5
+# -- Compiling architecture structure of test_w5
+# 
+wave create -pattern none -portmode in -language vhdl /test_w5/clk
+# test_w5
+wave create -pattern none -portmode in -language vhdl /test_w5/reset
+# test_w5
+wave create -pattern none -portmode in -language vhdl -range 7 0 /test_w5/key
+# test_w5
+wave create -pattern none -portmode out -language vhdl /test_w5/ld_inc_out
+# test_w5
+wave create -pattern none -portmode out -language vhdl -range 2 0 /test_w5/condition_sel_out
+# test_w5
+wave create -pattern none -portmode out -language vhdl -range 4 0 /test_w5/next_address_out
+# test_w5
+wave create -pattern none -portmode out -language vhdl -range 10 0 /test_w5/q_out
+# test_w5
+wave create -pattern none -portmode out -language vhdl /test_w5/beep
+# test_w5
+wave create -pattern none -portmode out -language vhdl /test_w5/door
+# test_w5
+add wave -position end  sim:/test_w5/ld_inc_out
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: minji  Hostname: LAPTOP-N59EI03A  ProcessID: 9820
+# 
+#           Attempting to use alternate WLF file "./wlftysmrq1".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftysmrq1
+# 
+add wave -position end  sim:/test_w5/condition_sel_out
+add wave -position end  sim:/test_w5/next_address_out
+add wave -position end  sim:/test_w5/q_out
+add wave -position end  sim:/test_w5/beep
+add wave -position end  sim:/test_w5/door
+add wave -position end  sim:/test_w5/address
+add wave -position end  sim:/test_w5/key_sw
+wave modify -driver freeze -pattern clock -initialvalue 0 -period 100ns -dutycycle 50 -starttime 0ns -endtime 10000ns Edit:/test_w5/clk
+# test_w5
+wave modify -driver freeze -pattern constant -value 0 -starttime 0ns -endtime 10000ns Edit:/test_w5/reset
+# test_w5
+wave modify -driver freeze -pattern constant -value 00000000 -range 7 0 -starttime 0ns -endtime 10000ns Edit:/test_w5/key
+# test_w5
+
+wave edit invert -start 0ps -end 132653ps Edit:/test_w5/reset
+wave edit change_value -start 928570ps -end 1571427ps -value 00001000 Edit:/test_w5/key
+wave edit change_value -start 2867344ps -end 3571425ps -value 10000000 Edit:/test_w5/key
+wave edit change_value -start 4744893ps -end 5438769ps -value 00000100 Edit:/test_w5/key
+wave edit change_value -start 6752925ps -end 7354965ps -value 00100000 Edit:/test_w5/key
+
+
